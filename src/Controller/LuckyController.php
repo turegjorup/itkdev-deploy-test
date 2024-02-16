@@ -15,6 +15,12 @@ class LuckyController extends AbstractController
 
         return $this->render('lucky/index.html.twig', [
             'number' => $number,
+            'color' => $this->rand_color(),
         ]);
+    }
+
+    private function rand_color(): string
+    {
+        return '#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
     }
 }

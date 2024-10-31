@@ -17,3 +17,5 @@ steps:
         from_secret: ssh-cert
       PLUGIN_HOST: 'deploy-test.itkdev.dk'
       PLUGIN_USER: 'deploy'
+    commands:
+      - ansible all -i "${PLUGIN_HOST}," --user ${PLUGIN_REMOTE_USER} -a 'uptime'

@@ -18,3 +18,4 @@ steps:
         from_secret: ssh-cert
       HOST: 'deploy-test.itkdev.dk'
       USER: 'deploy'
+      PLAYBOOK: 'uptime'

@@ -11,12 +11,10 @@ steps:
   - name: Ansible test
     image: itkdev/ansible-plugin:latest
     pull: true
-    environment:
-      PLUGIN_PRIVATE_KEY:
+    settings:
+      PRIVATE_KEY:
         from_secret: ssh-key
-      PLUGIN_CERT:
+      CERT:
         from_secret: ssh-cert
-      PLUGIN_HOST: 'deploy-test.itkdev.dk'
-      PLUGIN_USER: 'deploy'
-    commands:
-      - ansible all -i "deploy-test.itkdev.dk," --user deploy -a 'uptime'
+      HOST: 'deploy-test.itkdev.dk'
+      USER: 'deploy'

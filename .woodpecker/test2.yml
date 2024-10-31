@@ -1,0 +1,17 @@
+when:
+  - event: push
+    branch: develop
+
+steps:
+  - name: Site 2 ansible test
+    image: itkdev/ansible-plugin:latest
+    pull: true
+    settings:
+      PRIVATE_KEY:
+        from_secret: ssh-key
+      CERT:
+        from_secret: ssh-cert
+      HOST: 'deploy-test.itkdev.dk'
+      USER: 'deploy'
+      ACTIONS:
+        - uptime

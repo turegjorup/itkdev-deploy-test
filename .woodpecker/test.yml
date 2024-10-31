@@ -16,6 +16,6 @@ steps:
       PLUGIN_CERT:
         from_secret: ssh-cert
       PLUGIN_HOST: 'deploy-test.itkdev.dk'
-      PLUGIN_USER: 'itkroot'
+      PLUGIN_USER: 'deploy'
       commands:
         - echo "DONE"

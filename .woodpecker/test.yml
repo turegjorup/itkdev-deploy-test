@@ -9,8 +9,12 @@ steps:
       - echo "This is the build step"
       - echo "binary-data-123" > executable
 
-  - name: a-test-step
-    image: golang:1.16
-    commands:
-      - echo "Testing ..."
-      - ./executable
+  - name: Ansible test
+    image: itkdev:ansible-plugin
+    environment:
+      PLUGIN_PRIVATE_KEY:
+        from_secret: ssh-key
+      PLUGIN_CERT:
+        from_secret: ssh-cert
+      PLUGIN_HOST: 'deploy-test.itkdev.dk'
+      PLUGIN_USER: 'itkroot'

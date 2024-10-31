@@ -10,7 +10,7 @@ steps:
       - echo "binary-data-123" > executable
 
   - name: Ansible test
-    image: itkdev:ansible-plugin
+    image: itkdev/ansible-plugin:latest
     environment:
       PLUGIN_PRIVATE_KEY:
         from_secret: ssh-key

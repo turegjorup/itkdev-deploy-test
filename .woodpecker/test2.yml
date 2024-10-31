@@ -11,7 +11,9 @@ steps:
         from_secret: ssh-key
       CERT:
         from_secret: ssh-cert
-      HOST: 'deploy-test.itkdev.dk'
-      USER: 'deploy'
+      HOST:
+        from_secret: host
+      USER:
+        from_secret: user
       ACTIONS:
         - uptime

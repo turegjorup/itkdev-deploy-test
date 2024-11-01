@@ -18,6 +18,8 @@ steps:
         from_secret: ssh-cert
       HOST:
         from_secret: host
+      PATH:
+        from_secret: path
       USER:
         from_secret: user
       PLAYBOOK: 'uptime'

@@ -22,7 +22,7 @@ steps:
         from_secret: path
       USER:
         from_secret: user
-      PLAYBOOK: 'uptime'
+      PLAYBOOK: 'test'
 
   - name: Ansible
     image: itkdev/ansible-plugin:latest

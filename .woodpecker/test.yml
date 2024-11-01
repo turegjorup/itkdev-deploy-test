@@ -1,6 +1,5 @@
 when:
-  - event: push
-    branch: develop
+  - event: release
 
 steps:
   - name: build

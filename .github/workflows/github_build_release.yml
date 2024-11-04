@@ -18,6 +18,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Composer install
+        run: |
+          docker network create frontend
+          docker compose run --rm --user=root --env APP_ENV=prod phpfpm composer install --no-dev -o --classmap-authoritative
+          docker compose run --rm --user=root --env APP_ENV=prod phpfpm composer clear-cache
+
       - name: Make assets dir
         run: |
           mkdir -p ../assets

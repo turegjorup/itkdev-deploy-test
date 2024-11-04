@@ -23,21 +23,4 @@ steps:
         from_secret: user
       PLAYBOOK: 'test'
       SHARED_RESSOURCES:
-        - .env
-        - var/cache/
-
-  - name: Ansible
-    image: itkdev/ansible-plugin:latest
-    pull: true
-    settings:
-      PRIVATE_KEY:
-        from_secret: ssh-key
-      CERT:
-        from_secret: ssh-cert
-      HOST:
-        from_secret: host
-      USER:
-        from_secret: user
-      ACTIONS:
-        - uptime
-        - id
+        - .env.local

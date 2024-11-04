@@ -21,9 +21,9 @@ steps:
         from_secret: path
       USER:
         from_secret: user
-      PLAYBOOK: 'test'
+      PLAYBOOK: 'release'
 
-  - name: Site 2 ansible test
+  - name: Run post deploy
     image: itkdev/ansible-plugin:latest
     pull: true
     settings:

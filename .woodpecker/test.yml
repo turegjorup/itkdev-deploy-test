@@ -36,4 +36,5 @@ steps:
       USER:
         from_secret: user
       ACTIONS:
-        - idc exec phpfpm bin/console cache:clear
+        - /usr/local/bin/itkdev-docker-compose-server exec phpfpm bin/console cache:clear
+        - itkdev-docker-compose-server exec phpfpm bin/console cache:clear

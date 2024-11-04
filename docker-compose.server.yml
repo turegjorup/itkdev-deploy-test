@@ -22,6 +22,7 @@ services:
       - COMPOSER_VERSION=2
     volumes:
       - .:/app
+      - ../shared/.env.local:/app/.env.local
 
   nginx:
     image: nginxinc/nginx-unprivileged:alpine
@@ -35,6 +36,7 @@ services:
       - ./.docker/templates:/etc/nginx/templates:ro
       - ./.docker/nginx.conf:/etc/nginx/nginx.conf:ro
       - .:/app
+      - ../shared/public/upload:/app/public/upload
     environment:
       NGINX_FPM_SERVICE: ${COMPOSE_PROJECT_NAME}-phpfpm-1:9000
       NGINX_WEB_ROOT: /app/public

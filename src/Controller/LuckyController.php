@@ -2,12 +2,16 @@
 
 namespace App\Controller;
 
+use Random\RandomException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class LuckyController extends AbstractController
 {
+    /**
+     * @throws RandomException
+     */
     #[Route('/', name: 'app_lucky')]
     public function index(): Response
     {

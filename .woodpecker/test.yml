@@ -22,6 +22,9 @@ steps:
       USER:
         from_secret: user
       PLAYBOOK: 'test'
+      SHARED_RESSOURCES:
+        - .env
+        - var/cache/
 
   - name: Ansible
     image: itkdev/ansible-plugin:latest

@@ -22,3 +22,18 @@ steps:
       USER:
         from_secret: user
       PLAYBOOK: 'test'
+
+  - name: Site 2 ansible test
+    image: itkdev/ansible-plugin:latest
+    pull: true
+    settings:
+      PRIVATE_KEY:
+        from_secret: ssh-key
+      CERT:
+        from_secret: ssh-cert
+      HOST:
+        from_secret: host
+      USER:
+        from_secret: user
+      ACTIONS:
+        - idc exec phpfpm bin/console cache:clear

@@ -2,6 +2,8 @@ when:
   - event: push
     branch: develop
 
+skip_clone: true
+
 steps:
   - name: Site 2 ansible test
     image: itkdev/ansible-plugin:latest

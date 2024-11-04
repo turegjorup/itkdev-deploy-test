@@ -1,6 +1,8 @@
 when:
   - event: release
 
+skip_clone: true
+
 steps:
   - name: build
     image: debian

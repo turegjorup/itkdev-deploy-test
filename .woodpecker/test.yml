@@ -23,6 +23,7 @@ steps:
         from_secret: path
       USER:
         from_secret: user
+      KEEP: 4
       PLAYBOOK: 'release'
 
   - name: Run post deploy

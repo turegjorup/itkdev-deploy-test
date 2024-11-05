@@ -1,27 +1,11 @@
 when:
-  - event: release
+  event: cron
+  cron: "Cache-clear"
 
 skip_clone: true
 
 steps:
-  - name: Ansible playbook
-    image: itkdev/ansible-plugin:latest
-    pull: true
-    settings:
-      PRIVATE_KEY:
-        from_secret: ssh-key
-      CERT:
-        from_secret: ssh-cert
-      HOST:
-        from_secret: host
-      PATH:
-        from_secret: path
-      USER:
-        from_secret: user
-      KEEP: 4
-      PLAYBOOK: 'release'
-
-  - name: Run post deploy
+  - name: Run cache clear
     image: itkdev/ansible-plugin:latest
     pull: true
     settings:

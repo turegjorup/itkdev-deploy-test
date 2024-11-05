@@ -24,20 +24,20 @@ steps:
         - itkdev-docker-compose-server run phpfpm bin/console cache:clear
         - uptime
       cron:
-        cache1:
+        cache:
           minute: '*/10'
           hour: '*'
           day: '*'
           month: '*'
           weekday: '*'
           job: 'itkdev-docker-compose-server exec phpfpm bin/console cache:clear'
-        cache3:
-          minute: '*/10'
+        cronTest:
+          minute: '*'
           hour: '*'
           day: '*'
           month: '*'
           weekday: '*'
-          job: 'itkdev-docker-compose-server exec phpfpm bin/console cache:clear'
+          job: 'itkdev-docker-compose-server exec phpfpm bin/console app:cron'
 
   - name: Run post deploy
     image: itkdev/ansible-plugin:1

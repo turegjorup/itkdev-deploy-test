@@ -31,7 +31,7 @@ steps:
           month: '*'
           weekday: '*'
           job: 'itkdev-docker-compose-server exec phpfpm bin/console cache:clear'
-        cache2:
+        cache3:
           minute: '*/10'
           hour: '*'
           day: '*'

@@ -31,6 +31,7 @@ steps:
           month: '*'
           weekday: '*'
           job: 'itkdev-docker-compose-server exec phpfpm bin/console cache:clear'
+          chdir: true
         cronTest:
           minute: '*'
           hour: '*'
@@ -38,6 +39,7 @@ steps:
           month: '*'
           weekday: '*'
           job: 'itkdev-docker-compose-server exec phpfpm bin/console app:cron'
+          chdir: true
 
   - name: Run post deploy
     image: itkdev/ansible-plugin:1

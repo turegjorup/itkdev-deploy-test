@@ -24,7 +24,7 @@ steps:
         - itkdev-docker-compose-server run phpfpm bin/console cache:clear
         - uptime
       cron:
-        cache:
+        cache-clear:
           minute: '*/10'
           hour: '*'
           day: '*'
@@ -32,7 +32,7 @@ steps:
           weekday: '*'
           job: 'itkdev-docker-compose-server exec phpfpm bin/console cache:clear'
           chdir: true
-        cronTest:
+        cron-test:
           minute: '*'
           hour: '*'
           day: '*'

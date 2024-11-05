@@ -1,6 +1,5 @@
 when:
-  - event: push
-    branch: develop
+  - event: release
 
 skip_clone: true
 

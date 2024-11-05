@@ -22,6 +22,7 @@ steps:
       playbook: 'release'
       pre_up:
         - itkdev-docker-compose-server run phpfpm bin/console cache:clear
+        - uptime
       cron:
         cache:
           minute: '*/10'

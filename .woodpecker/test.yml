@@ -5,35 +5,45 @@ skip_clone: true
 
 steps:
   - name: Ansible playbook
-    image: itkdev/ansible-plugin:latest
+    image: itkdev/ansible-plugin:1
     pull: true
     settings:
-      PRIVATE_KEY:
-        from_secret: ssh-key
-      CERT:
-        from_secret: ssh-cert
-      HOST:
+      id:
+        from_secret: id
+      secret:
+        from_secret: secret
+      host:
         from_secret: host
-      PATH:
+      path:
         from_secret: path
-      USER:
+      user:
         from_secret: user
-      KEEP: 4
-      PLAYBOOK: 'release'
+      keep: 4
+      playbook: 'release'
+      pre_up:
+        - itkdev-docker-compose-server run phpfpm bin/console cache:clear
+      cron:
+        cache:
+          minute: '*/10'
+          hour: '*'
+          day: '*'
+          month: '*'
+          weekday: '*'
+          job: 'itkdev-docker-compose-server exec phpfpm bin/console cache:clear'
 
   - name: Run post deploy
-    image: itkdev/ansible-plugin:latest
+    image: itkdev/ansible-plugin:1
     pull: true
     settings:
-      PRIVATE_KEY:
-        from_secret: ssh-key
-      CERT:
-        from_secret: ssh-cert
-      HOST:
+      id:
+        from_secret: id
+      secret:
+        from_secret: secret
+      host:
         from_secret: host
-      PATH:
+      path:
         from_secret: path
-      USER:
+      user:
         from_secret: user
-      ACTIONS:
+      actions:
         - itkdev-docker-compose-server exec phpfpm bin/console cache:clear
